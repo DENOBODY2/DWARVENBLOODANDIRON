@@ -2,7 +2,6 @@ package net.denobody2.dwarven_bai.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.denobody2.dwarven_bai.item.DwarvenArmorMaterialRegistry;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -12,18 +11,16 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.Map;
 
-public class   DwarvenArmorItem extends ArmorItem {
-
-    //public boolean on = false;
-    public DwarvenArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
+public class InvisArmorItem extends ArmorItem {
+    public boolean on = false;
+    public InvisArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
-    /*public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
+    public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
                     .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false))
                     .build();
@@ -34,7 +31,7 @@ public class   DwarvenArmorItem extends ArmorItem {
             //if(player.isCrouching()) {
             evaluateArmor(player);
             //} else {
-                //on = false;
+            //on = false;
             //}
         } else {
 
@@ -106,5 +103,5 @@ public class   DwarvenArmorItem extends ArmorItem {
         }
 
         return super.getArmorTexture(stack, entity, slot, type);
-    }*/
+    }
 }
