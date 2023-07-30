@@ -25,17 +25,19 @@ public class   DwarvenArmorItem extends ArmorItem {
     }
     public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, true, false, false))
+                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false))
                     .build();
 
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         if(!level.isClientSide() && hasFullArmor(player)){
-            if(player.isCrouching()) {
-                evaluateArmor(player);
-            } else {
-                on = false;
-            }
+            //if(player.isCrouching()) {
+            evaluateArmor(player);
+            //} else {
+                //on = false;
+            //}
+        } else {
+
         }
     }
     private boolean hasFullArmor(Player player){
@@ -51,13 +53,20 @@ public class   DwarvenArmorItem extends ArmorItem {
         for(Map.Entry<ArmorMaterial, MobEffectInstance> entry: MATERIAL_TO_EFFECT_MAP.entrySet()){
             ArmorMaterial mapArmorMaterial = entry.getKey();
             MobEffectInstance mapEffectInstance = entry.getValue();
-
-            if(hasPlayerCorrectArmor(mapArmorMaterial, player)){
-                addEffect(player, mapEffectInstance);
-                on = true;
+            if(player.isCrouching()){
+                if(hasPlayerCorrectArmor(mapArmorMaterial, player) && !on){
+                    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 2, 0, false, false));
+                    on = true;
+                } else if (hasPlayerCorrectArmor(mapArmorMaterial, player) && on){
+                    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 2, 0, false, false));
+                }
             } else {
+                if(on && hasPlayerCorrectArmor(mapArmorMaterial, player)){
+                    player.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 1, 0, false, false));
+                }
                 on = false;
             }
+
 
         }
     }
