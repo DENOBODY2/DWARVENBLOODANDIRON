@@ -2,6 +2,7 @@ package net.denobody2.dwarven_bai.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.denobody2.dwarven_bai.item.DwarvenArmorMaterialRegistry;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -24,7 +25,7 @@ public class   DwarvenArmorItem extends ArmorItem {
     }
     public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 60, 0, false, false))
+                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, true, false, false))
                     .build();
 
     @Override
