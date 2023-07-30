@@ -19,6 +19,15 @@ public class DwarvenCreativeTabsRegistry {
                 pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL_CHESTPLATE.get());
                 pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL_LEGGINGS.get());
                 pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL_BOOTS.get());
+                pOutput.accept(DwarvenItemRegistry.MAGIC_CLOTH.get());
+                pOutput.accept(DwarvenItemRegistry.INVIS_HELMET.get());
+                pOutput.accept(DwarvenItemRegistry.INVIS_CHESTPLATE.get());
+                pOutput.accept(DwarvenItemRegistry.INVIS_LEGGINGS.get());
+                pOutput.accept(DwarvenItemRegistry.INVIS_BOOTS.get());
+                pOutput.accept(DwarvenItemRegistry.OCEAN_HELMET.get());
+                pOutput.accept(DwarvenItemRegistry.OCEAN_CHESTPLATE.get());
+                pOutput.accept(DwarvenItemRegistry.OCEAN_LEGGINGS.get());
+                pOutput.accept(DwarvenItemRegistry.OCEAN_BOOTS.get());
 
             }).build());
     public static void register(IEventBus eventBus){

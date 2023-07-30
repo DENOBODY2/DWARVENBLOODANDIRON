@@ -22,7 +22,7 @@ public class InvisArmorItem extends ArmorItem {
     }
     public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false))
+                    .put(DwarvenArmorMaterialRegistry.INVIS, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false))
                     .build();
 
     @Override
@@ -81,23 +81,18 @@ public class InvisArmorItem extends ArmorItem {
 
         return boots.getMaterial() == mapArmorMaterial && leggings.getMaterial() == mapArmorMaterial && chestplate.getMaterial() == mapArmorMaterial && helmet.getMaterial() == mapArmorMaterial;
     }
-    private void addEffect(Player player, MobEffectInstance mobEffectInstance){
-        boolean hasPlayerEffect = player.hasEffect(mobEffectInstance.getEffect());
-        if(!hasPlayerEffect){
-            player.addEffect(new MobEffectInstance(mobEffectInstance.getEffect(), mobEffectInstance.getDuration(), mobEffectInstance.getAmplifier()));
-        }
-    }
+
 
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
         if(on && (slot.equals(EquipmentSlot.CHEST) || slot.equals(EquipmentSlot.HEAD))){
-            return "dwarven_bai:textures/models/armor/dwarven_layer_1_empty.png";
+            return "dwarven_bai:textures/models/armor/invis_layer_1_active.png";
         } else if(!on && (slot.equals(EquipmentSlot.CHEST) || slot.equals(EquipmentSlot.HEAD))) {
-            return "dwarven_bai:textures/models/armor/dwarven_layer_1.png";
+            return "dwarven_bai:textures/models/armor/invis_layer_1.png";
         } else if(!on && (slot.equals(EquipmentSlot.LEGS))) {
-            return "dwarven_bai:textures/models/armor/dwarven_layer_2.png";
+            return "dwarven_bai:textures/models/armor/invis_layer_2.png";
         } else if(on && (slot.equals(EquipmentSlot.LEGS) || slot.equals(EquipmentSlot.FEET))) {
-            return "dwarven_bai:textures/models/armor/dwarven_layer_2_empty.png";
+            return "dwarven_bai:textures/models/armor/invis_layer_2_active.png";
         } else if (!on && (slot.equals(EquipmentSlot.FEET))){
             return super.getArmorTexture(stack, entity, slot, type);
         }

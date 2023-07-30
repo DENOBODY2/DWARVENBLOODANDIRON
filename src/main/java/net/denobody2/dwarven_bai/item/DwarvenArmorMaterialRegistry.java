@@ -8,6 +8,7 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorMaterials;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.EnumMap;
@@ -23,6 +24,22 @@ public enum DwarvenArmorMaterialRegistry implements ArmorMaterial {
         p_266655_.put(ArmorItem.Type.HELMET, 3);
     }), 18, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.15F, () -> {
         return Ingredient.of(DwarvenItemRegistry.DWARVEN_ARMOR_PARTS.get());
+    }),
+    OCEAN("ocean", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 3);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
+        p_266655_.put(ArmorItem.Type.HELMET, 3);
+    }), 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> {
+        return Ingredient.of(Items.HEART_OF_THE_SEA);
+    }),
+    INVIS("invis", 20, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 2);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 5);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 6);
+        p_266655_.put(ArmorItem.Type.HELMET, 2);
+    }), 20, SoundEvents.ARMOR_EQUIP_CHAIN, 0.0F, 0.0F, () -> {
+        return Ingredient.of(DwarvenItemRegistry.MAGIC_CLOTH.get());
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);

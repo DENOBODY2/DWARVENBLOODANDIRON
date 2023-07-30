@@ -1,6 +1,6 @@
 {
-  "item.dwarven_bai.dwarven_steel": "Dwarven Steel",
-  "dwarventab.dwarven_tab": "Dwarven Items",
+  "item.dwarven_bai.dwarven_armor_parts": "Dwarven Armor Parts",
+  "dwarventab.dwarven_tab": "Blood and Iron Items",
   "item.dwarven_bai.dwarven_steel_helmet": "Dwarven Steel Helm",
   "item.dwarven_bai.dwarven_steel_chestplate": "Dwarven Steel Chestplate",
   "item.dwarven_bai.dwarven_steel_leggings": "Dwarven Steel Leggings",
@@ -9,6 +9,14 @@
   "event.dwarven_bai.damagereduce1": "One stack",
   "event.dwarven_bai.damagereduce2": "Two stacks",
   "event.dwarven_bai.damagereduce3": "Three stacks",
-  "event.dwarven_bai.damagereduce4": "Four stacks"
-
+  "event.dwarven_bai.damagereduce4": "Four stacks",
+  "item.dwarven_bai.invis_helmet": "Magician's Cap",
+  "item.dwarven_bai.invis_chestplate": "Thief's Cloak",
+  "item.dwarven_bai.invis_leggins": "Goblin's Greaves",
+  "item.dwarven_bai.invis_boots": "Ancient Sorcerer's Boots",
+  "item.dwarven_bai.ocean_helmet": "Ocean Dweller's Helmet",
+  "item.dwarven_bai.ocean_chestplate": "Ocean Dweller's Chestplate",
+  "item.dwarven_bai.ocean_leggings": "Ocean Dweller's Leggings",
+  "item.dwarven_bai.ocean_boots": "Ocean Dweller's Boots",
+  "item.dwarven_bai.magic_cloth": "Magical Cloth"
 }
