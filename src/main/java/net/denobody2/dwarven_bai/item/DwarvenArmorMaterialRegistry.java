@@ -21,7 +21,7 @@ public enum DwarvenArmorMaterialRegistry implements ArmorMaterial {
         p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
         p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 18, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.2F, () -> {
+    }), 18, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.15F, () -> {
         return Ingredient.of(DwarvenItemRegistry.DWARVEN_STEEL.get());
     });
 
