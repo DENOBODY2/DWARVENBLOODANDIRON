@@ -1,6 +1,8 @@
 package net.denobody2.dwarven_bai;
 
 import com.mojang.logging.LogUtils;
+import net.denobody2.dwarven_bai.item.DwarvenCreativeTabsRegistry;
+import net.denobody2.dwarven_bai.item.DwarvenItemRegistry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -28,13 +30,14 @@ public class Dwarven_BAI
     public Dwarven_BAI()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        DwarvenCreativeTabsRegistry.register(modEventBus);
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-
+        DwarvenItemRegistry.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
