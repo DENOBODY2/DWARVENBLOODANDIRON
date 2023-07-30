@@ -16,7 +16,6 @@ public class DwarvenArmorItem extends ArmorItem {
     public DwarvenArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
-
     public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
                     .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.DIG_SPEED, 200, 1))
@@ -68,4 +67,8 @@ public class DwarvenArmorItem extends ArmorItem {
             player.addEffect(new MobEffectInstance(mobEffectInstance.getEffect(), mobEffectInstance.getDuration(), mobEffectInstance.getAmplifier()));
         }
     }
+
+
+
+
 }
