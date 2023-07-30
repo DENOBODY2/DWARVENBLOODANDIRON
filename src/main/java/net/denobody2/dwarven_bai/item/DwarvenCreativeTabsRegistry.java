@@ -13,8 +13,8 @@ public class DwarvenCreativeTabsRegistry {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Dwarven_BAI.MOD_ID);
     public static final RegistryObject<CreativeModeTab> DWARVEN_TAB = CREATIVE_MODE_TABS.register("dwarven_items", () -> CreativeModeTab.builder()
-            .icon(() -> new ItemStack(DwarvenItemRegistry.DWARVEN_STEEL.get())).title(Component.translatable("dwarventab.dwarven_tab")).displayItems((pParameters, pOutput) -> {
-                pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL.get());
+            .icon(() -> new ItemStack(DwarvenItemRegistry.DWARVEN_ARMOR_PARTS.get())).title(Component.translatable("dwarventab.dwarven_tab")).displayItems((pParameters, pOutput) -> {
+                pOutput.accept(DwarvenItemRegistry.DWARVEN_ARMOR_PARTS.get());
                 pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL_HELMET.get());
                 pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL_CHESTPLATE.get());
                 pOutput.accept(DwarvenItemRegistry.DWARVEN_STEEL_LEGGINGS.get());

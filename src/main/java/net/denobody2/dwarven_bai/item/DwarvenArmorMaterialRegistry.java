@@ -22,7 +22,7 @@ public enum DwarvenArmorMaterialRegistry implements ArmorMaterial {
         p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266655_.put(ArmorItem.Type.HELMET, 3);
     }), 18, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.15F, () -> {
-        return Ingredient.of(DwarvenItemRegistry.DWARVEN_STEEL.get());
+        return Ingredient.of(DwarvenItemRegistry.DWARVEN_ARMOR_PARTS.get());
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);

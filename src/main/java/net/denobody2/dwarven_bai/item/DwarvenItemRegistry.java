@@ -14,7 +14,7 @@ public class DwarvenItemRegistry {
             DeferredRegister.create(ForgeRegistries.ITEMS, Dwarven_BAI.MOD_ID);
 
 
-    public static final RegistryObject<Item> DWARVEN_STEEL = ITEMS.register("dwarven_steel", () -> new Item(new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> DWARVEN_ARMOR_PARTS = ITEMS.register("dwarven_steel", () -> new Item(new Item.Properties().fireResistant()));
 
     public static final RegistryObject<Item> DWARVEN_STEEL_HELMET = ITEMS.register("dwarven_steel_helmet",
             () -> new DwarvenArmorItem(DwarvenArmorMaterialRegistry.DWARVEN, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
