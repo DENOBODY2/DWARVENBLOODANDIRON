@@ -23,7 +23,7 @@ public class   DwarvenArmorItem extends ArmorItem {
     public DwarvenArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
-    public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
+    /*public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
                     .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 100, 0, false, false))
                     .build();
@@ -106,5 +106,5 @@ public class   DwarvenArmorItem extends ArmorItem {
         }
 
         return super.getArmorTexture(stack, entity, slot, type);
-    }
+    }*/
 }

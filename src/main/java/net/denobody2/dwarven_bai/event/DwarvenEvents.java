@@ -1,5 +1,6 @@
 package net.denobody2.dwarven_bai.event;
 
+import io.redspace.ironsspellbooks.damage.ISSDamageTypes;
 import net.denobody2.dwarven_bai.Dwarven_BAI;
 import net.denobody2.dwarven_bai.item.custom.DwarvenArmorItem;
 import net.minecraft.network.chat.Component;
@@ -27,7 +28,11 @@ public class DwarvenEvents {
         for (EquipmentSlot slot : slots) {
             ItemStack stack = entity.getItemBySlot(slot);
             if (stack.getItem() instanceof DwarvenArmorItem armorItem) {
-                if(source.is(DamageTypes.MAGIC) || source.is(DamageTypes.INDIRECT_MAGIC) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL) || source.is(DamageTypes.DRAGON_BREATH)) {
+                if(source.is(DamageTypes.MAGIC) || source.is(DamageTypes.INDIRECT_MAGIC) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL) || source.is(DamageTypes.DRAGON_BREATH)
+                        || source.is(ISSDamageTypes.BLOOD_MAGIC) || source.is(ISSDamageTypes.ENDER_MAGIC) || source.is(ISSDamageTypes.EVOCATION_MAGIC) || source.is(ISSDamageTypes.FIRE_MAGIC)
+                            ||source.is(ISSDamageTypes.CAULDRON) || source.is(ISSDamageTypes.DRAGON_BREATH_POOL) || source.is(ISSDamageTypes.FIRE_FIELD) || source.is(ISSDamageTypes.HEARTSTOP) ||
+                                source.is(ISSDamageTypes.HOLY_MAGIC) || source.is(ISSDamageTypes.ICE_MAGIC) || source.is(ISSDamageTypes.LIGHTNING_MAGIC) || source.is(ISSDamageTypes.POISON_CLOUD) ||
+                                    source.is(ISSDamageTypes.POISON_MAGIC) || source.is(ISSDamageTypes.VOID_MAGIC)) {
                     count++;
                 }
             }
