@@ -93,7 +93,7 @@ public class   DwarvenArmorItem extends ArmorItem {
         } else if(on && (slot.equals(EquipmentSlot.LEGS) || slot.equals(EquipmentSlot.FEET))) {
             return "dwarven_bai:textures/models/armor/dwarven_layer_2_empty.png";
         } else if (!on && (slot.equals(EquipmentSlot.FEET))){
-            return "dwarven_bai:textures/models/armor/dwarven_boots.png";
+            return super.getArmorTexture(stack, entity, slot, type);
         }
 
         return super.getArmorTexture(stack, entity, slot, type);
