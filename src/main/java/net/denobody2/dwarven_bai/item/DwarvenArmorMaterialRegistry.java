@@ -16,12 +16,12 @@ import java.util.function.Supplier;
 public enum DwarvenArmorMaterialRegistry implements ArmorMaterial {
 
 
-    DWARVEN("dwarven", 40, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+    DWARVEN("dwarven", 33, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
         p_266655_.put(ArmorItem.Type.BOOTS, 3);
         p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
         p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.2F, () -> {
+    }), 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.2F, () -> {
         return Ingredient.of(DwarvenItemRegistry.DWARVEN_STEEL.get());
     });
 
