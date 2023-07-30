@@ -4,27 +4,37 @@ import com.google.common.collect.ImmutableMap;
 import net.denobody2.dwarven_bai.item.DwarvenArmorMaterialRegistry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 
-public class DwarvenArmorItem extends ArmorItem {
+public class   DwarvenArmorItem extends ArmorItem {
+
+    public boolean on = false;
     public DwarvenArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
     public static Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.DIG_SPEED, 200, 1))
+                    .put(DwarvenArmorMaterialRegistry.DWARVEN, new MobEffectInstance(MobEffects.INVISIBILITY, 60, 0, false, false))
                     .build();
 
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         if(!level.isClientSide() && hasFullArmor(player)){
-            evaluateArmor(player);
+            if(player.isCrouching()) {
+                evaluateArmor(player);
+            } else {
+                on = false;
+            }
         }
     }
     private boolean hasFullArmor(Player player){
@@ -43,6 +53,9 @@ public class DwarvenArmorItem extends ArmorItem {
 
             if(hasPlayerCorrectArmor(mapArmorMaterial, player)){
                 addEffect(player, mapEffectInstance);
+                on = true;
+            } else {
+                on = false;
             }
 
         }
@@ -68,7 +81,20 @@ public class DwarvenArmorItem extends ArmorItem {
         }
     }
 
+    @Override
+    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+        if(on && (slot.equals(EquipmentSlot.CHEST) || slot.equals(EquipmentSlot.HEAD))){
+            return "dwarven_bai:textures/models/armor/dwarven_layer_1_empty.png";
+        } else if(!on && (slot.equals(EquipmentSlot.CHEST) || slot.equals(EquipmentSlot.HEAD))) {
+            return "dwarven_bai:textures/models/armor/dwarven_layer_1.png";
+        } else if(!on && (slot.equals(EquipmentSlot.LEGS))) {
+            return "dwarven_bai:textures/models/armor/dwarven_layer_2.png";
+        } else if(on && (slot.equals(EquipmentSlot.LEGS) || slot.equals(EquipmentSlot.FEET))) {
+            return "dwarven_bai:textures/models/armor/dwarven_layer_2_empty.png";
+        } else if (!on && (slot.equals(EquipmentSlot.FEET))){
+            return "dwarven_bai:textures/models/armor/dwarven_boots.png";
+        }
 
-
-
+        return super.getArmorTexture(stack, entity, slot, type);
+    }
 }
